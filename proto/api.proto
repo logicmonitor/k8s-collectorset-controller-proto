@@ -7,18 +7,19 @@ package api;
 // The CollectorSetController collectorset service definition.
 service CollectorSetController {
   // Retrieves a collector ID.
-  rpc CollectorID(CollectorIDRequest) returns (CollectorIDReply) {}
+  rpc CollectorIDAndAutoBalancedCollectorGroupId(CollectorIDAndAutoBalancedCollectorGroupIdRequest) returns (CollectorIDAndAutoBalancedCollectorGroupIdReply) {}
   rpc CSCVersion(CSCVersionRequest) returns (CSCVersionReply) {}
 }
 
 // The CollectorIDRequest message for a collector ID.
-message CollectorIDRequest {
+message CollectorIDAndAutoBalancedCollectorGroupIdRequest {
   string orchestrator = 2;
 }
 
 // The CollectorIDReply response message from a collector ID request.
-message CollectorIDReply {
-  int32 id = 1;
+message CollectorIDAndAutoBalancedCollectorGroupIdReply {
+  int32 collectorId = 1;
+  int32 autoBalancedCollectorGroupId = 2;
 }
 
 // The CSCVersionRequest message for a CSC Version.
